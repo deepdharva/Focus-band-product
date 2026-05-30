@@ -3,190 +3,461 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FocusBand AI</title>
+<title>FocusBand AI - The Future of Human Focus</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Outfit',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-    background:#0f172a;
-    color:white;
+background:linear-gradient(135deg,#020617,#0f172a,#111827);
+color:white;
+overflow-x:hidden;
 }
 
-header{
-    text-align:center;
-    padding:80px 20px;
-    background:linear-gradient(135deg,#2563eb,#06b6d4);
+body::before{
+content:'';
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 20% 20%,rgba(59,130,246,.25),transparent 25%),
+radial-gradient(circle at 80% 30%,rgba(6,182,212,.20),transparent 25%),
+radial-gradient(circle at 50% 80%,rgba(59,130,246,.15),transparent 25%);
+z-index:-1;
 }
 
-header h1{
-    font-size:3rem;
-    margin-bottom:15px;
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 8%;
+backdrop-filter:blur(20px);
+position:sticky;
+top:0;
+background:rgba(0,0,0,.2);
+border-bottom:1px solid rgba(255,255,255,.08);
+z-index:100;
 }
 
-header p{
-    font-size:1.2rem;
-    margin-bottom:25px;
+.logo{
+font-size:1.8rem;
+font-weight:800;
+background:linear-gradient(to right,#60a5fa,#22d3ee);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:60px 8%;
+gap:50px;
+flex-wrap:wrap;
+}
+
+.hero-text{
+flex:1;
+min-width:300px;
+}
+
+.hero-text h1{
+font-size:4rem;
+line-height:1.1;
+margin-bottom:20px;
+}
+
+.hero-text h1 span{
+background:linear-gradient(to right,#60a5fa,#22d3ee);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero-text p{
+font-size:1.2rem;
+color:#cbd5e1;
+line-height:1.8;
+margin-bottom:30px;
+}
+
+.buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
 }
 
 .btn{
-    display:inline-block;
-    padding:12px 25px;
-    background:white;
-    color:#2563eb;
-    text-decoration:none;
-    border-radius:30px;
-    font-weight:bold;
+padding:14px 28px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+font-weight:700;
+font-size:1rem;
+transition:.3s;
+}
+
+.primary{
+background:linear-gradient(90deg,#3b82f6,#06b6d4);
+color:white;
+}
+
+.secondary{
+background:transparent;
+border:1px solid rgba(255,255,255,.2);
+color:white;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+box-shadow:0 0 30px rgba(59,130,246,.5);
+}
+
+.hero-image{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+min-width:300px;
+}
+
+.hero-image img{
+width:100%;
+max-width:700px;
+animation:float 4s ease-in-out infinite;
+filter:drop-shadow(0 0 40px rgba(59,130,246,.5));
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-20px);}
+100%{transform:translateY(0);}
 }
 
 section{
-    padding:60px 10%;
+padding:100px 8%;
 }
 
 .section-title{
-    text-align:center;
-    font-size:2rem;
-    margin-bottom:40px;
+text-align:center;
+font-size:3rem;
+margin-bottom:20px;
+}
+
+.section-sub{
+text-align:center;
+color:#94a3b8;
+max-width:700px;
+margin:auto;
+margin-bottom:60px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.stat{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(20px);
+padding:35px;
+border-radius:25px;
+text-align:center;
+border:1px solid rgba(255,255,255,.08);
+transition:.3s;
+}
+
+.stat:hover{
+transform:translateY(-10px);
+}
+
+.stat h2{
+font-size:3rem;
+color:#38bdf8;
 }
 
 .features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
 }
 
-.card{
-    background:#1e293b;
-    padding:25px;
-    border-radius:15px;
-    text-align:center;
+.feature{
+background:rgba(255,255,255,.05);
+padding:30px;
+border-radius:25px;
+border:1px solid rgba(255,255,255,.08);
+transition:.3s;
 }
 
-.card h3{
-    margin-bottom:10px;
+.feature:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(59,130,246,.25);
 }
 
-.product-image{
-    text-align:center;
+.feature h3{
+margin-bottom:15px;
+font-size:1.4rem;
 }
 
-.product-image img{
-    width:300px;
-    border-radius:20px;
+.feature p{
+color:#cbd5e1;
+line-height:1.7;
 }
 
-.benefits{
-    display:flex;
-    flex-wrap:wrap;
-    gap:20px;
-    justify-content:center;
+.testimonials{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
 }
 
-.benefit{
-    background:#1e293b;
-    padding:20px;
-    border-radius:12px;
-    width:250px;
-    text-align:center;
+.review{
+background:rgba(255,255,255,.05);
+padding:30px;
+border-radius:25px;
+border:1px solid rgba(255,255,255,.08);
+}
+
+.review p{
+line-height:1.8;
+color:#cbd5e1;
+}
+
+.review h4{
+margin-top:15px;
+color:#38bdf8;
+}
+
+.cta{
+text-align:center;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+border-radius:30px;
+padding:80px 30px;
+}
+
+.cta h2{
+font-size:3rem;
+margin-bottom:20px;
+}
+
+.cta p{
+max-width:700px;
+margin:auto;
+color:#cbd5e1;
+margin-bottom:30px;
 }
 
 footer{
-    text-align:center;
-    padding:25px;
-    background:#020617;
+text-align:center;
+padding:30px;
+color:#94a3b8;
+border-top:1px solid rgba(255,255,255,.08);
 }
+
+@media(max-width:900px){
+
+.hero-text h1{
+font-size:2.8rem;
+text-align:center;
+}
+
+.hero-text p{
+text-align:center;
+}
+
+.buttons{
+justify-content:center;
+}
+
+.hero{
+text-align:center;
+}
+
+.section-title{
+font-size:2.2rem;
+}
+
+.cta h2{
+font-size:2rem;
+}
+}
+
 </style>
 </head>
-
 <body>
 
-<header>
-    <h1>FocusBand AI</h1>
-    <p>Wear Focus. Achieve More.</p>
-    <a href="#features" class="btn">Explore Features</a>
-</header>
+<nav>
+<div class="logo">FocusBand AI</div>
+</nav>
 
-<section>
-    <h2 class="section-title">The Problem</h2>
-    <p style="text-align:center;font-size:1.1rem;">
-        Students lose focus because of notifications, distractions,
-        and mental fatigue. FocusBand AI helps you stay productive
-        and achieve your goals.
-    </p>
-</section>
+<section class="hero">
 
-<section id="features">
-    <h2 class="section-title">Features</h2>
+<div class="hero-text">
 
-    <div class="features">
-        <div class="card">
-            <h3>🎯 Focus Score</h3>
-            <p>Track your concentration level in real time.</p>
-        </div>
+<h1>
+Unlock Your <span>Peak Focus</span>
+</h1>
 
-        <div class="card">
-            <h3>📵 Distraction Alert</h3>
-            <p>Get notified when your focus drops.</p>
-        </div>
+<p>
+FocusBand AI is an intelligent smart wristband that helps students and professionals eliminate distractions, improve concentration, track productivity, and achieve their goals faster through AI-powered focus optimization.
+</p>
 
-        <div class="card">
-            <h3>⏱ Smart Study Timer</h3>
-            <p>AI-powered study and break scheduling.</p>
-        </div>
+<div class="buttons">
+<button class="btn primary">Get FocusBand AI</button>
+<button class="btn secondary">Watch Demo</button>
+</div>
 
-        <div class="card">
-            <h3>🤖 AI Coach</h3>
-            <p>Personalized productivity suggestions.</p>
-        </div>
+</div>
 
-        <div class="card">
-            <h3>📊 Analytics</h3>
-            <p>View weekly performance reports.</p>
-        </div>
+<div class="hero-image">
+<img src="focusband.jpg" alt="FocusBand AI">
+</div>
 
-        <div class="card">
-            <h3>🧠 Exam Mode</h3>
-            <p>Reduce stress and maximize concentration.</p>
-        </div>
-    </div>
-</section>
-
-<section class="product-image">
-    <h2 class="section-title">Product Preview</h2>
-
-    <img src="https://via.placeholder.com/300x300.png?text=FocusBand+AI"
-         alt="FocusBand AI">
 </section>
 
 <section>
-    <h2 class="section-title">Benefits</h2>
 
-    <div class="benefits">
-        <div class="benefit">
-            Improve Focus
-        </div>
+<h2 class="section-title">Performance Metrics</h2>
 
-        <div class="benefit">
-            Reduce Distractions
-        </div>
+<p class="section-sub">
+Real-time AI analytics designed to maximize productivity and concentration.
+</p>
 
-        <div class="benefit">
-            Better Study Habits
-        </div>
+<div class="stats">
 
-        <div class="benefit">
-            Higher Productivity
-        </div>
-    </div>
+<div class="stat">
+<h2>95</h2>
+<p>Focus Score</p>
+</div>
+
+<div class="stat">
+<h2>88%</h2>
+<p>Productivity Boost</p>
+</div>
+
+<div class="stat">
+<h2>3</h2>
+<p>Distractions Blocked</p>
+</div>
+
+<div class="stat">
+<h2>2h 34m</h2>
+<p>Deep Work Session</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">AI Features</h2>
+
+<p class="section-sub">
+Designed using advanced AI technology to transform the way humans focus.
+</p>
+
+<div class="features">
+
+<div class="feature">
+<h3>🎯 Neural Focus Tracking</h3>
+<p>Continuously monitors concentration levels and provides actionable insights.</p>
+</div>
+
+<div class="feature">
+<h3>🤖 AI Productivity Coach</h3>
+<p>Personalized recommendations to improve study habits and work efficiency.</p>
+</div>
+
+<div class="feature">
+<h3>📵 Distraction Detection</h3>
+<p>Identifies focus-breaking activities and instantly alerts the user.</p>
+</div>
+
+<div class="feature">
+<h3>📊 Deep Work Analytics</h3>
+<p>Track focus trends and performance improvements over time.</p>
+</div>
+
+<div class="feature">
+<h3>🧠 Exam Mode</h3>
+<p>Optimized focus environment for students during preparation sessions.</p>
+</div>
+
+<div class="feature">
+<h3>❤️ Stress Monitoring</h3>
+<p>AI detects stress patterns and recommends recovery actions.</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">What Users Say</h2>
+
+<div class="testimonials">
+
+<div class="review">
+<p>
+★★★★★<br><br>
+"FocusBand AI helped me improve my concentration dramatically during exam preparation."
+</p>
+<h4>Engineering Student</h4>
+</div>
+
+<div class="review">
+<p>
+★★★★★<br><br>
+"The future of productivity wearables. Clean design and powerful AI insights."
+</p>
+<h4>Technology Reviewer</h4>
+</div>
+
+<div class="review">
+<p>
+★★★★★<br><br>
+"An innovative concept that bridges AI and human performance."
+</p>
+<h4>Startup Mentor</h4>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="cta">
+
+<h2>Ready to Unlock Your Potential?</h2>
+
+<p>
+Join the next generation of AI-powered productivity and experience a smarter way to focus, learn and achieve.
+</p>
+
+<button class="btn primary">
+Pre-Order FocusBand AI
+</button>
+
+</div>
+
 </section>
 
 <footer>
-    © 2026 FocusBand AI | Built for Students
+© 2026 FocusBand AI • Wear Focus. Achieve More.
 </footer>
 
 </body>
